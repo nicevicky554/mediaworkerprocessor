@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: enforce-media-worker
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    envVars:
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SECRET_KEY
+        sync: false
+      - key: MEDIA_PROCESSOR_SECRET
+        sync: false
+      - key: MEDIA_MAX_CONCURRENT_JOBS
+        value: "1"
